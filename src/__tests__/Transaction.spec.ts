@@ -33,7 +33,6 @@ describe('Transaction', () => {
     });
 
     const response = await request(app).get('/transactions');
-
     expect(response.body.transactions).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
@@ -57,6 +56,30 @@ describe('Transaction', () => {
       ]),
     );
 
+    /**
+    expect(response.body.transactions).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          id: expect.any(String),
+          title: 'Loan',
+          type: 'income',
+          value: 1200,
+        }),
+        expect.objectContaining({
+          id: expect.any(String),
+          title: 'Bicycle',
+          type: 'outcome',
+          value: 1500,
+        }),
+        expect.objectContaining({
+          id: expect.any(String),
+          title: 'Salary',
+          type: 'income',
+          value: 3000,
+        }),
+      ]),
+    );
+*/
     expect(response.body.balance).toMatchObject({
       income: 4200,
       outcome: 1500,
